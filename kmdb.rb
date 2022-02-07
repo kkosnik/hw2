@@ -323,9 +323,23 @@ puts ""
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
-for movies in Movie.all
-    puts "#{movie.title} #{movie.year_released} #{movie.rating} #{"Christopher Nolan"}"
-end
+all_movies = Movie.all
+#all_directors = Person.where({title: "The Dark Knight Rises"})[0]
+
+director_id = []
+
+  if director_id[movie[:person_id]] == nil # if director isn't in the array already, add it
+        director_id.push("#{movie[:person_id]}")
+    end
+
+
+puts director_id
+
+#for person in all_people
+   # if person.id == movie.person_id
+   # for movie in all_movies
+   # puts "#{movie.title}   #{movie.year_released}     #{movie.rated} #{person[:id][:person_id}]"
+#end
 
 # Batman Begins          2005           PG-13  Christopher Nolan
 # The Dark Knight        2008           PG-13  Christopher Nolan
@@ -339,3 +353,27 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+
+
+all_roles = Role.all
+
+for role in all_roles
+    puts "#{role.movie.title}   #{role.person.name}     #{role.character_name}"
+end
+
+
+# Batman Begins          Christian Bale        Bruce Wayne
+# Batman Begins          Michael Caine         Alfred
+# Batman Begins          Liam Neeson           Ra's Al Ghul
+# Batman Begins          Katie Holmes          Rachel Dawes
+# Batman Begins          Gary Oldman           Commissioner Gordon
+# The Dark Knight        Christian Bale        Bruce Wayne
+# The Dark Knight        Heath Ledger          Joker
+# The Dark Knight        Aaron Eckhart         Harvey Dent
+# The Dark Knight        Michael Caine         Alfred
+# The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+# The Dark Knight Rises  Christian Bale        Bruce Wayne
+# The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+# The Dark Knight Rises  Tom Hardy             Bane
+# The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+# The Dark Knight Rises  Anne Hathaway         Selina Kyle
