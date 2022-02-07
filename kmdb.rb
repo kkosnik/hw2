@@ -122,30 +122,30 @@ puts "There are now #{Movie.all.count} movies." # 3
 # Batman Begins
 ## People
 person = Person.new
-name = "Christian Bale"
+person.name = "Christian Bale"
 person.save
 
 person = Person.new
-name = "Michael Caine"
+person.name = "Michael Caine"
 person.save
 
 person = Person.new
-name = "Liam Neeson"
+person.name = "Liam Neeson"
 person.save
 
 person = Person.new
-name = "Katie Holmes"
+person.name = "Katie Holmes"
 person.save
 
 person = Person.new
-name = "Gary Oldman"
+person.name = "Gary Oldman"
 person.save
 
 puts "There are now #{Person.all.count} people." # 6
 
 #find movie id
 batman_begins = Movie.where({title: "Batman Begins"})[0]
-bb_id = movie.id
+bb_id = batman_begins.id
 
 #find people ids
 cb = Person.where({name: "Christian Bale"})[0]
@@ -153,11 +153,11 @@ cb_id = cb.id
 mc = Person.where({name: "Michael Caine"})[0]
 mc_id = mc.id
 ln = Person.where({name: "Liam Neeson"})[0]
-ln_id ln.id
+ln_id = ln.id
 kh = Person.where({name: "Katie Holmes"})[0]
-kh = kh.id
+kh_id = kh.id
 go = Person.where({name: "Gary Oldman"})[0]
-go = go.id
+go_id = go.id
 
 ## Roles
 role = Role.new
@@ -190,23 +190,27 @@ role.movie_id = bb_id
 role.person_id = go_id
 role.save
 
+puts "There are now #{Role.all.count} roles." # 5
+
 # Dark Night
 ## People
 person = Person.new
-name = "Heath Ledger"
+person.name = "Heath Ledger"
 person.save
 
 person = Person.new
-name = "Aaron Eckhart"
+person.name = "Aaron Eckhart"
 person.save
 
 person = Person.new
-name = "Maggie Gyllenhaal"
+person.name = "Maggie Gyllenhaal"
 person.save
+
+puts "There are now #{Person.all.count} people." # 9
 
 #find movie id
-dark_night = Movie.where({title: "The Dark Night"})[0]
-dn_id = movie.id
+dark_knight = Movie.where({title: "The Dark Knight"})[0]
+dk_id = dark_knight.id
 
 #find people ids
 hl = Person.where({name: "Heath Ledger"})[0]
@@ -219,51 +223,55 @@ mg_id = mg.id
 ## Roles
 role = Role.new
 role.character_name = "Bruce Wayne"
-role.movie_id = dn_id
+role.movie_id = dk_id
 role.person_id = cb_id
 role.save
 
 role = Role.new
 role.character_name = "Joker"
-role.movie_id = dn_id
+role.movie_id = dk_id
 role.person_id = hl_id
 role.save
 
 role = Role.new
 role.character_name = "Harvey Dent"
-role.movie_id = dn_id
+role.movie_id = dk_id
 role.person_id = ae_id
 role.save
 
 role = Role.new
 role.character_name = "Alfred"
-role.movie_id = dn_id
+role.movie_id = dk_id
 role.person_id = mc_id
 role.save
 
 role = Role.new
 role.character_name = "Rachel Dawes"
-role.movie_id = dn_id
+role.movie_id = dk_id
 role.person_id = mg_id
 role.save
+
+puts "There are now #{Role.all.count} roles." # 10
 
 # Dark Night Rises
 ## People
 person = Person.new
-name = "Tom Hardy"
+person.name = "Tom Hardy"
 person.save
 
 person = Person.new
-name = "Joseph Gordon-Levitt"
+person.name = "Joseph Gordon-Levitt"
 person.save
 
 person = Person.new
-name = "Anne Hathaway"
+person.name = "Anne Hathaway"
 person.save
+
+puts "There are now #{Person.all.count} people." # 12
 
 #find movie id
-dark_night_rises = Movie.where({title: "The Dark Night Rises"})[0]
-dnr_id = movie.id
+dark_knight_rises = Movie.where({title: "The Dark Knight Rises"})[0]
+dkr_id = dark_knight_rises.id
 
 #find people ids
 th = Person.where({name: "Tom Hardy"})[0]
@@ -276,33 +284,35 @@ ah_id = ah.id
 ## Roles
 role = Role.new
 role.character_name = "Bruce Wayne"
-role.movie_id = dnr_id
+role.movie_id = dkr_id
 role.person_id = cb_id
 role.save
 
 role = Role.new
 role.character_name = "Commissioner Gordon"
-role.movie_id = dnr_id
+role.movie_id = dkr_id
 role.person_id = go_id
 role.save
 
 role = Role.new
 role.character_name = "Bane"
-role.movie_id = dnr_id
+role.movie_id = dkr_id
 role.person_id = th_id
 role.save
 
 role = Role.new
 role.character_name = "John Blake"
-role.movie_id = dnr_id
+role.movie_id = dkr_id
 role.person_id = jgl_id
 role.save
 
 role = Role.new
 role.character_name = "Selina Kyle"
-role.movie_id = dnr_id
+role.movie_id = dkr_id
 role.person_id = ah_id
 role.save
+
+puts "There are now #{Role.all.count} roles." # 15
 
 
 # Prints a header for the movies output
@@ -313,7 +323,13 @@ puts ""
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
-for 
+for movies in Movie.all
+    puts "#{movie.title} #{movie.year_released} #{movie.rating} #{"Christopher Nolan"}"
+end
+
+# Batman Begins          2005           PG-13  Christopher Nolan
+# The Dark Knight        2008           PG-13  Christopher Nolan
+# The Dark Knight Rises  2012           PG-13  Christopher Nolan
 
 # Prints a header for the cast output
 puts ""
