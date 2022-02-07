@@ -70,12 +70,129 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+Movie.destroy_all
+Person.destroy_all
+Role.destroy_all
+
 # Generate models and tables, according to the domain model
 # TODO!
+
+# rails generate model Movie
+# rails generate model Person
+# rails generate model Role
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+puts "There are now #{Person.all.count} people."
+
+person = Person.new
+person.name = "Christopher Nolan"
+person.save
+
+puts "There are now #{Person.all.count} people." # 1
+
+chris = Person.where({name: "Christopher Nolan"})[0]
+chris_id = person.id
+
+movie = Movie.new
+movie.title = "Batman Begins"
+movie.year_released = "2005"
+movie.rated = "PG-13"
+movie.person_id = chris_id
+movie.save
+
+movie = Movie.new
+movie.title = "The Dark Knight"
+movie.year_released = "2008"
+movie.rated = "PG-13"
+movie.person_id = chris_id
+movie.save
+
+movie = Movie.new
+movie.title = "The Dark Knight Rises"
+movie.year_released = "2012"
+movie.rated = "PG-13"
+movie.person_id = chris_id
+movie.save
+
+puts "There are now #{Movie.all.count} movies." # 3
+
+# Batman Begins
+## People
+person = Person.new
+name = "Christian Bale"
+person.save
+
+person = Person.new
+name = "Michael Caine"
+person.save
+
+person = Person.new
+name = "Liam Neeson"
+person.save
+
+person = Person.new
+name = "Katie Holmes"
+person.save
+
+person = Person.new
+name = "Gary Oldman"
+person.save
+
+puts "There are now #{Person.all.count} people." # 6
+
+batman_begins = Movie.where({title: "Batman Begins"})[0]
+bb_id = movie.id
+
+cb = Person.where({name: "Christian Bale"})[0]
+cb_id = cb.id
+mc = Person.where({name: "Michael Caine"})[0]
+mc_id = mc.id
+ln = Person.where({name: "Liam Neeson"})[0]
+ln_id ln.id
+kh = Person.where({name: "Katie Holmes"})[0]
+kh = kh.id
+go = Person.where({name: "Gary Oldman"})[0]
+go = go.id
+
+## Roles
+role = Role.new
+role.character_name = "Bruce Wayne"
+role.movie_id = bb_id
+role.person_id = cb_id
+role.save
+
+role = Role.new
+role.character_name = "Alfred"
+role.movie_id = bb_id
+role.person_id = mc_id
+role.save
+
+role = Role.new
+role.character_name = "Ra's Al Ghul"
+role.movie_id = bb_id
+role.person_id = ln_id
+role.save
+
+role = Role.new
+role.character_name = "Rachel Dawes"
+role.movie_id = bb_id
+role.person_id = kh_id
+role.save
+
+role = Role.new
+role.character_name = "Commissioner Gordon"
+role.movie_id = bb_id
+role.person_id = go_id
+role.save
+
+# Dark Night
+## People
+INSERT INTO people (name) VALUES ("Heath Ledger"); -- 7
+INSERT INTO people (name) VALUES ("Aaron Eckhart"); -- 8
+INSERT INTO people (name) VALUES ("Maggie Gyllenhaal"); -- 9
 
 # Prints a header for the movies output
 puts "Movies"
