@@ -323,23 +323,13 @@ puts ""
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
+
 all_movies = Movie.all
-#all_directors = Person.where({title: "The Dark Knight Rises"})[0]
 
-director_id = []
+for movie in all_movies
+    puts "#{movie.title}   #{movie.year_released}  #{movie.rated}   #{movie.person.name}"
+end
 
-  if director_id[movie[:person_id]] == nil # if director isn't in the array already, add it
-        director_id.push("#{movie[:person_id]}")
-    end
-
-
-puts director_id
-
-#for person in all_people
-   # if person.id == movie.person_id
-   # for movie in all_movies
-   # puts "#{movie.title}   #{movie.year_released}     #{movie.rated} #{person[:id][:person_id}]"
-#end
 
 # Batman Begins          2005           PG-13  Christopher Nolan
 # The Dark Knight        2008           PG-13  Christopher Nolan
