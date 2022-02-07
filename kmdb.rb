@@ -143,9 +143,11 @@ person.save
 
 puts "There are now #{Person.all.count} people." # 6
 
+#find movie id
 batman_begins = Movie.where({title: "Batman Begins"})[0]
 bb_id = movie.id
 
+#find people ids
 cb = Person.where({name: "Christian Bale"})[0]
 cb_id = cb.id
 mc = Person.where({name: "Michael Caine"})[0]
@@ -190,9 +192,118 @@ role.save
 
 # Dark Night
 ## People
-INSERT INTO people (name) VALUES ("Heath Ledger"); -- 7
-INSERT INTO people (name) VALUES ("Aaron Eckhart"); -- 8
-INSERT INTO people (name) VALUES ("Maggie Gyllenhaal"); -- 9
+person = Person.new
+name = "Heath Ledger"
+person.save
+
+person = Person.new
+name = "Aaron Eckhart"
+person.save
+
+person = Person.new
+name = "Maggie Gyllenhaal"
+person.save
+
+#find movie id
+dark_night = Movie.where({title: "The Dark Night"})[0]
+dn_id = movie.id
+
+#find people ids
+hl = Person.where({name: "Heath Ledger"})[0]
+hl_id = hl.id
+ae = Person.where({name: "Aaron Eckhart"})[0]
+ae_id = ae.id
+mg = Person.where({name: "Maggie Gyllenhaal"})[0]
+mg_id = mg.id
+
+## Roles
+role = Role.new
+role.character_name = "Bruce Wayne"
+role.movie_id = dn_id
+role.person_id = cb_id
+role.save
+
+role = Role.new
+role.character_name = "Joker"
+role.movie_id = dn_id
+role.person_id = hl_id
+role.save
+
+role = Role.new
+role.character_name = "Harvey Dent"
+role.movie_id = dn_id
+role.person_id = ae_id
+role.save
+
+role = Role.new
+role.character_name = "Alfred"
+role.movie_id = dn_id
+role.person_id = mc_id
+role.save
+
+role = Role.new
+role.character_name = "Rachel Dawes"
+role.movie_id = dn_id
+role.person_id = mg_id
+role.save
+
+# Dark Night Rises
+## People
+person = Person.new
+name = "Tom Hardy"
+person.save
+
+person = Person.new
+name = "Joseph Gordon-Levitt"
+person.save
+
+person = Person.new
+name = "Anne Hathaway"
+person.save
+
+#find movie id
+dark_night_rises = Movie.where({title: "The Dark Night Rises"})[0]
+dnr_id = movie.id
+
+#find people ids
+th = Person.where({name: "Tom Hardy"})[0]
+th_id = th.id
+jgl = Person.where({name: "Joseph Gordon-Levitt"})[0]
+jgl_id = jgl.id
+ah = Person.where({name: "Anne Hathaway"})[0]
+ah_id = ah.id
+
+## Roles
+role = Role.new
+role.character_name = "Bruce Wayne"
+role.movie_id = dnr_id
+role.person_id = cb_id
+role.save
+
+role = Role.new
+role.character_name = "Commissioner Gordon"
+role.movie_id = dnr_id
+role.person_id = go_id
+role.save
+
+role = Role.new
+role.character_name = "Bane"
+role.movie_id = dnr_id
+role.person_id = th_id
+role.save
+
+role = Role.new
+role.character_name = "John Blake"
+role.movie_id = dnr_id
+role.person_id = jgl_id
+role.save
+
+role = Role.new
+role.character_name = "Selina Kyle"
+role.movie_id = dnr_id
+role.person_id = ah_id
+role.save
+
 
 # Prints a header for the movies output
 puts "Movies"
@@ -201,6 +312,8 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
+
+for 
 
 # Prints a header for the cast output
 puts ""
